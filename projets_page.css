@@ -1,0 +1,250 @@
+body{
+    background-color: #0c0908;
+    color: #fbfcf8;
+    font-family:Perpetua;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start;    
+    height: 150px;
+    width: 100%;               
+    max-width: 1904px;           
+    margin: 0 auto;            
+    padding-top: 8px;          
+    box-sizing: border-box;
+}
+
+.topleft_corner {
+    width: 350px;
+    margin-left: 8px;
+}
+
+.top_motif {
+    flex-grow: 1;                 
+    max-width: 1076px;            
+    width: 100%;                  
+    object-fit: contain;       
+}
+
+.topright_corner {
+    width: 350px;
+    margin-right: 8px;
+}
+
+main{
+    display: flex;
+    column-gap: 150px;
+    margin-right: 350px;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+}
+
+.titre{
+    font-size: 45px;
+}
+
+.tempo{
+    display: flex;
+    padding-left: 5px;
+}
+
+.equipe{
+    display: flex;
+    padding-left: 5px;
+}
+
+.typeprojet{
+    display: flex;
+    padding-left: 5px;
+}
+
+aside{
+    min-width: 250px;
+    height: 700px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 158px;
+}
+
+.side{
+    display: flex;
+    width: 250px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left_arrow{
+    width: 118px;
+    height: 221px;
+    transition: transform .2s;
+}
+
+.left_arrow:hover{
+    filter: drop-shadow(0 0 5px #e0e0dd);
+    transform: scale(1.2);
+}
+
+.projlink{
+    color: #fbfcf8;
+    text-decoration: none;
+    transition: transform .2s;
+}
+
+.projlink:hover{
+    transform: scale(1.2);
+    text-shadow: 0 0 8px #e0e0dd;
+}
+
+.projgrid{
+    display: grid;
+    grid-template-columns: 350px 350px 350px;
+    gap: 22px;
+}
+
+.projet{
+    border: 5px ridge #fbfcf8;
+    border-radius: 15px;
+    height: 400px;
+    position: relative;
+    transition: transform .2s;
+}
+
+a{
+    color: #fbfcf8;
+    text-decoration: none;
+}
+
+.projet:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #e0e0dd;
+}
+
+.imag{
+    height: 150px;
+    width: 340px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+h2,h3,h4,.descri{
+    margin-top: 0;
+    margin-bottom: 15px;
+    margin-left: 5px;
+}
+
+.technos{
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+}
+
+.techno{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 5px;
+    color: #0c0908;
+    background-color: #fbfcf8;
+    border-radius: 10px;
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height:301px;
+    width: 1904px;
+}
+
+.bot_motif{
+    width: 1174px;
+    height: 80px;
+}
+
+.botleft_corner{
+    width: 350px;
+}
+
+.botright_corner{
+    width: 350px;
+}
+
+@media screen and (max-width: 768px) {
+    .topleft_corner, .topright_corner, .botleft_corner, .botright_corner, .bot_motif {
+        display: none !important;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    nav, footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        height: auto;
+    }
+
+    .top_motif{
+        width: 100%;
+        height: auto;
+        position: static;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        margin-right: 0;
+        padding: 20px;
+        column-gap: 0;
+    }
+
+    aside {
+        position: static;
+        height: auto;
+        min-width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+        margin-bottom: 30px;
+        order: -1; 
+    }
+
+    .side {
+        width: 100%;
+        max-width: 300px;
+        justify-content: space-around;
+    }
+
+    .left_arrow {
+        width: 60px;
+        height: auto;
+    }
+
+    .projgrid {
+        grid-template-columns: 1fr;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .projet {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+        height: auto;
+        padding-bottom: 50px;
+    }
+
+    .imag {
+        width: 100%;
+        height: auto;
+    }
+}
