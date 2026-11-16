@@ -66,7 +66,7 @@ ul img {
 
 ul img:hover{
     transform: scale(1.2);
-    filter: drop-shadow(0 0 5px #e0e0dd);
+    box-shadow: 0 0 8px #e0e0dd;
 }
 
 .forma{
@@ -126,6 +126,7 @@ aside{
 .right_arrow{
     width: 118px;
     height: 221px;
+    border-radius: 50%;
     transition: transform .2s;
 }
 
