@@ -6,6 +6,28 @@
         <link rel="stylesheet" href="accueil.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <script type="module">
+            import Swup from 'https://unpkg.com/swup@4?module';
+            import SwupSlideTheme from 'https://unpkg.com/@swup/slide-theme@2?module';
+            import SwupHeadPlugin from 'https://unpkg.com/@swup/head-plugin@2?module';
+
+            const swup = new Swup({
+                plugins: [
+                    new SwupSlideTheme(),
+                    new SwupHeadPlugin()
+                ]
+            });
+
+            swup.hooks.on('visit:start', (visit) => {
+                const html = document.documentElement;
+                const dir = visit.trigger.el?.dataset.swupAnimation;
+
+                html.classList.remove('slide-left', 'slide-right');
+                if (dir === 'left' || dir === 'right') {
+                    html.classList.add(`slide-${dir}`);
+                }
+            });
+        </script>
     </head>
     <body>
         <nav>
@@ -14,7 +36,8 @@
             <img class="topright_corner" src="images/topright_corner.png" alt="topright_corner_motif">
         </nav>
 
-        <main>
+        <div id="swup" class="transition-slide">
+            <main>
             <article>
                 <div class="present">
                     <div class="present_txt">
@@ -22,7 +45,7 @@
                     </div>
 
                     <div class="present_img">
-                        <img class="img_moi" src="images/photo_moi.png" alt="photo de moi">
+                        <img class="img_moi" src="images/photo_moi.jpg" alt="photo de moi">
                     </div>
                 </div>
                 
@@ -87,17 +110,17 @@
             
             <aside>
                 <div class="side">
-                    <a class="projlink" href="portfolio_projetss.html"><h1>Projets</h1></a>
-                    <a href="portfolio_projetss.html"><img class="right_arrow" src="images/rightside_arrow.png" alt="right_arrow"></a>
+                    <a class="projlink" href="portfolio_projets.html" data-swup-animation="right"><h1>Projets</h1></a>
+                    <a href="portfolio_projets.html" data-swup-animation="right"><img class="right_arrow" src="images/rightside_arrow.png" alt="right_arrow"></a>
                 </div>
             </aside>
         </main>
+        </div>
 
         <footer>
             <img class="botleft_corner" src="images/botleft_corner.png" alt="botleft_corner">
             <img class="bot_motif" src="images/bot_motif.png" alt="bot_motif">
             <img class="botright_corner" src="images/botright_corner.png" alt="botright_corner">
         </footer>
-
     </body>
 </html>

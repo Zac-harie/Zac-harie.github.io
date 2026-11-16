@@ -6,6 +6,28 @@
         <link rel="stylesheet" href="projet.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <script type="module">
+            import Swup from 'https://unpkg.com/swup@4?module';
+            import SwupSlideTheme from 'https://unpkg.com/@swup/slide-theme@2?module';
+            import SwupHeadPlugin from 'https://unpkg.com/@swup/head-plugin@2?module';
+
+            const swup = new Swup({
+                plugins: [
+                    new SwupSlideTheme(),
+                    new SwupHeadPlugin()
+                ]
+            });
+
+            swup.hooks.on('visit:start', (visit) => {
+                const html = document.documentElement;
+                const dir = visit.trigger.el?.dataset.swupAnimation;
+
+                html.classList.remove('slide-left', 'slide-right');
+                if (dir === 'left' || dir === 'right') {
+                    html.classList.add(`slide-${dir}`);
+                }
+            });
+        </script>
     </head>
     <body>
         <nav>
@@ -14,11 +36,12 @@
             <img class="topright_corner" src="images/topright_corner.png" alt="topright_corner_motif">
         </nav>
 
-        <main>
+        <div id="swup" class="transition-slide">
+            <main>
             <aside>
                 <div class="side">
-                    <a href="portfolio_projets.html"><img class="left_arrow" src="images/leftside_arrow.png" alt="left_arrow"></a>
-                    <a class="projlink" href="portfolio_projets.html"><h1>Retour</h1></a>
+                    <a href="portfolio_projets.html" data-swup-animation="left"><img class="left_arrow" src="images/leftside_arrow.png" alt="left_arrow"></a>
+                    <a class="projlink" href="portfolio_projets.html" data-swup-animation="left"><h1>Retour</h1></a>
                 </div>
             </aside>
 
@@ -50,6 +73,12 @@
                         <span class="techno">
                             <i class="fa-solid fa-gears"></i>
                             <h4>Java</h4>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="git">
+                            <a href="https://github.com/Zac-harie/Faerun"><i class="fa-brands fa-github"></i></a>
+                            <a class="gitlink" href="https://github.com/Zac-harie/Faerun"><h4>Lien GitHub</h4></a>
                         </span>
                     </li>
                 </ul>
@@ -86,11 +115,12 @@
 
             <aside>
                 <div class="side">
-                    <a class="projlink" href="portfolio_accueil.html"><h1>Accueil</h1></a>
-                    <a href="portfolio_accueil.html"><img class="right_arrow" src="images/rightside_arrow.png" alt="right_arrow"></a>
+                    <a class="projlink" href="portfolio_accueil.html" data-swup-animation="right"><h1>Accueil</h1></a>
+                    <a href="portfolio_accueil.html" data-swup-animation="right"><img class="right_arrow" src="images/rightside_arrow.png" alt="right_arrow"></a>
                 </div>
             </aside>
         </main>
+        </div>
         
         <footer>
             <img class="botleft_corner" src="images/botleft_corner.png" alt="botleft_corner">
